@@ -1,22 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 body {
     background: #F6F5F7;
     font-family: 'Montserrat', sans-serif;
     color: #3e363F;
+    
 }
+ #main{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+ }
+
 #container {
-    width: 900px;
+    width: auto;
+    max-width: 900px;
     height: 500px;
     text-align: center;
-    position: absolute;
-    inset: 0;
     margin: auto;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#calculator{
+#calculator {
     background: white;
     width: 50%;
     height: 100%;
@@ -24,7 +33,7 @@ body {
 }
 
 #details {
-    background: #FF416C;
+    background: #0b4f1b;
     width: 50%;
     height: 100%;
     float: left;
@@ -46,20 +55,21 @@ input {
     background-color: #eee;
     margin-bottom: 10px;
 }
-button{
+
+button {
     font-size: 15px;
     font-weight: bold;
     padding: 12px 45px;
     border-radius: 30px;
-    background-color: #FF416C;
-    border: 1px solid #FF416C;
+    background-color: #0b4f1b;
+    border: 1px solid #0b4f1b;
     color: #FFFFFF;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: transform 20ms ease-in;
 }
 
-button:active{
+button:active {
     transform: scale(0.95);
 }
 
@@ -69,10 +79,42 @@ button:active{
     display: none;
 }
 
-.resultado{
-    color: #0A81d1;
+.resultado {
+    color: #0b4f1b;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 5px;
     display: none;
+}
+
+
+#historyContainer {
+    background: #f0f0f0;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px 0;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    margin: 20px auto 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#historyList {
+    list-style-type: none;
+    padding: -100px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#historyList li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #0b4f1b;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+#historyList li:last-child {
+    border-bottom: none;
 }
