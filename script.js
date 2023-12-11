@@ -6,13 +6,18 @@ const METHOD = document.getElementById('method');
 let history = [];
 
 CALCULATE.addEventListener('click', () => {
-    const PESO = parseInt(document.getElementById('peso').value);
+    let pesoinput= document.getElementById('peso')
+    const PESO = parseInt(pesoinput.value);
     MAN.innerHTML = '';
     FLU.innerHTML = '';
     METHOD.innerHTML = '';
-
-    if (PESO > 0) {
+    pesoinput.addEventListener("input", ()=>{
         ERROR.style.display = 'none';
+        FLU.style.display = 'none';
+        MAN.style.display = 'none';
+        METHOD.style.display = 'none';
+    })
+    if (PESO > 0) {
         let flujo = calcFlujo(PESO);
         METHOD.innerHTML = 'Método utilizado: Holliday-Segar'; 
         if (PESO > 30) {
@@ -43,10 +48,7 @@ CALCULATE.addEventListener('click', () => {
         history.push(result);
         updateHistory();
     } else {
-        ERROR.style.display = 'block';
-        FLU.style.display = 'none';
-        MAN.style.display = 'none';
-        METHOD.style.display = 'none';
+       
     }
 });
 
@@ -68,9 +70,7 @@ function calcFlujo(peso) {
 
 function updateHistory() {
     const historyList = document.getElementById('historyList');
-    historyList.innerHTML = ''; // Limpiar la lista actual
-
-    // Mostrar los últimos 5 cálculos
+    historyList.innerHTML = ''; 
     let recentHistory = history.slice(-5).reverse();
     for (let item of recentHistory) {
         let listItem = document.createElement('li');
